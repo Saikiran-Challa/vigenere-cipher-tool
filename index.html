@@ -1,0 +1,106 @@
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vigenère Cipher Tool</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      color: #34495e;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+    button {
+      padding: 12px 24px;
+      margin-top: 15px;
+      margin-right: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .output-area {
+      background-color: #f4f4f4;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      margin-top: 15px;
+    }
+    .file-section {
+      margin-top: 20px;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Vigenère Cipher Tool</h1>
+
+    <label>Enter Text:</label>
+    <textarea id="textInput" rows="5" placeholder="Enter or upload text..."></textarea>
+
+    <label>Enter Key (letters or numbers):</label>
+    <input type="text" id="keyInput" placeholder="Enter encryption key" autocomplete="off">
+
+    <div class="button-row">
+      <button onclick="encryptText()">Encrypt</button>
+      <button onclick="decryptText()">Decrypt</button>
+    </div>
+
+    <div class="file-section">
+      <label>Upload .txt File:</label>
+      <input type="file" id="fileInput" accept=".txt">
+      <button onclick="processFile()">Load File</button>
+    </div>
+
+    <label>Result:</label>
+    <textarea id="resultOutput" class="output-area" rows="5" readonly></textarea>
+    <button onclick="downloadResult()">Download Result</button>
+  </div>
+
+  <script src="cipher.js"></script>
+</body>
+</html>
